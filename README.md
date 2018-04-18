@@ -1,0 +1,26 @@
+# Bernard
+
+This is a personal project and is mainly for personal use/fun at the moment. It
+consists currently of a GraphQL API project and an Ecto PostgreSQL project. Client
+apps not implemented atm
+
+A financial management app for families. Ideas/features:
+
+* [ ] Collect and persist bank transactions locally to keep personal records forever
+* [ ] Push notifications of new transactions
+* [ ] Spending anaylsis mainly around predictive budgeting
+* [ ] Investment reminders or automated investments
+* [ ] Budgeting in terms of future purchases instead of dollar values
+
+## Todo
+
+* [ ] Plaid API integration
+* [ ] User authentication
+* [ ] Deployment (via Distillery)
+* [ ] Desktop client
+* [ ] ETrade API integration (?)
+* [ ] Cron-job for date-based reminders/notifications (?)
+
+## Running
+
+**TODO**
