@@ -8,7 +8,7 @@ defmodule BernardCore.Accounts.User do
 
   import Ecto.Changeset
 
-  alias BernardCore.Accounts.{User, Credential}
+  alias BernardCore.Accounts.Credential
   alias BernardCore.Finance.Item
 
   schema "users" do
@@ -24,6 +24,7 @@ defmodule BernardCore.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name])
+    |> cast_assoc(:credentials, with: &Credential.changeset/2, required: true)
     |> validate_required([:name])
   end
 end

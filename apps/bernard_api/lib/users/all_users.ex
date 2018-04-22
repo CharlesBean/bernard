@@ -15,8 +15,13 @@ defmodule BernardApi.Users.AllUsers do
   end
 
   @doc false
-  defp all_users(_root, _args, _info) do
+  defp all_users(_root, _args, %{context: %{current_user: _current_user}}) do
     users = Accounts.list_users()
     {:ok, users}
+  end
+
+  @doc false
+  defp all_users(_root, _args, _info) do
+    {:error, "Not authenticated"}
   end
 end

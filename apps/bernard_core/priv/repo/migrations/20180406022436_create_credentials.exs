@@ -4,7 +4,8 @@ defmodule BernardCore.Repo.Migrations.CreateCredentials do
   def change do
     create table(:credentials, primary_key: false) do
       add :id, :uuid, primary_key: true
-      add :email, :string
+      add :email, :string, null: false
+      add :password_hash, :string, null: false
 
       add :user_id, references(:users, on_delete: :delete_all, type: :uuid),
                     null: false

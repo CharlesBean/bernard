@@ -7,7 +7,7 @@ defmodule BernardCore.Accounts do
   import Ecto.Query, warn: false
 
   alias BernardCore.Repo
-  alias BernardCore.Accounts.{User, Credential}
+  alias BernardCore.Accounts.User
 
   @doc """
   Returns the list of users.
@@ -59,7 +59,6 @@ defmodule BernardCore.Accounts do
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
-    |> Ecto.Changeset.cast_assoc(:credentials, with: &Credential.changeset/2)
     |> Repo.insert()
   end
 

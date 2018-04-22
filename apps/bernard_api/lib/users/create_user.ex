@@ -14,15 +14,15 @@ defmodule BernardApi.Users.CreateUser do
     field :create_user, :user do
       arg :email, non_null(:string)
       arg :name, non_null(:string)
-      arg :username, non_null(:string)
+      arg :password, non_null(:string)
 
       resolve &create_user/3
     end
   end
 
   @doc false
-  defp create_user(_root, %{email: email, username: username, name: name}, _info) do
-    attrs = %{:username => username, :name => name, :credentials => [ %{ :email => email } ]}
+  defp create_user(_root, %{email: email, name: name, password: password}, _info) do
+    attrs = %{:name => name, :credentials => [ %{ :email => email, :password => password } ]}
     Accounts.create_user(attrs)
   end
 end

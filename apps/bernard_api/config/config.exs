@@ -21,6 +21,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+# Configure Guardian for API authentication via token
+config :bernard_api, BernardApi.Guardian,
+  issuer: "bernard_api",
+  secret_key: {BernardApi.Config, :get_environment_variable, ["API_JWT_SECRET_KEY"]}
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

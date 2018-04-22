@@ -4,6 +4,7 @@ defmodule BernardApi.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug BernardApi.Context
   end
 
   scope "/" do

@@ -14,4 +14,9 @@ alias BernardCore.Repo
 alias BernardCore.Accounts.Credential
 alias BernardCore.Accounts.User
 
-%User{name: "Charles Bean", credentials: [%Credential{email: "beanchar@msu.edu"}]} |> Repo.insert!
+me = %{name: "Charles Bean", credentials: [ %{email: "beanchar@msu.edu", password: "password"}] }
+
+%User{}
+  |> User.changeset(me)
+  |> Ecto.Changeset.cast_assoc(:credentials, with: &Credential.changeset/2)
+  |> Repo.insert!()
