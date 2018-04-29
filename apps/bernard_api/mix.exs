@@ -45,6 +45,7 @@ defmodule BernardApi.Mixfile do
       # {:gettext, "~> 0.11"},
       {:guardian, "~> 1.0"},
       {:httpoison, "~> 1.0"},
+      {:kronky, "~> 0.5.0"},
       {:pbkdf2_elixir, "~> 0.12"},
       {:phoenix, "~> 1.3.1"},
       {:phoenix_pubsub, "~> 1.0"},

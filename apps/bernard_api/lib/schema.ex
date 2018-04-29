@@ -8,10 +8,10 @@ defmodule BernardApi.Schema do
 
   query do
     import_fields :all_users
+    import_fields :login_user
   end
 
   mutation do
     import_fields :create_user
-    import_fields :login_user
   end
 end

@@ -1,8 +1,5 @@
 defmodule BernardApi.Guardian do
   use Guardian, otp_app: :bernard_api
-    # secret_key: "zlMmcWhu85hfZNxIOZ0ybhoovSNNeDTqmzhRaFSxEzlBfUEncqK8K9iNYegHD"
-    # secret_key: System.get_env("API_JWT_SECRET_KEY")
-    # secret_key: {BernardApi.Config, :get_environment_variable, ["API_JWT_SECRET_KEY"]}
 
   alias BernardCore.Accounts
   alias BernardCore.Accounts.User

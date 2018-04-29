@@ -14,8 +14,8 @@ defmodule BernardApi.Context do
   Return the current user context based on the authorization header
   """
   def build_context(conn) do
-    with  ["Bearer " <> token] <- get_req_header(conn, "authorization"),
-          {:ok, current_user, _claims} <- BernardApi.Guardian.resource_from_token(token)
+    with  ["Bearer " <> token]          <- get_req_header(conn, "authorization"),
+          {:ok, current_user, _claims}  <- BernardApi.Guardian.resource_from_token(token)
     do
       %{current_user: current_user}
     else
