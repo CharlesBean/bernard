@@ -14,3 +14,7 @@ config :bernard_api, BernardApi.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Configure Plaid API connection info
+config :bernard_api, :plaid,
+  host: "https://development.plaid.com"

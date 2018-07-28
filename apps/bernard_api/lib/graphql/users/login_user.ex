@@ -1,4 +1,4 @@
-defmodule BernardApi.Users.LoginUser do
+defmodule BernardApi.GraphQL.Users.LoginUser do
   @moduledoc """
   Logs in a User and returns access and refresh tokens for authentication
   """

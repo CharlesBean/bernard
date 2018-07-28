@@ -15,12 +15,13 @@ A financial management app for families. Ideas/features:
 ## Todo
 
 * [ ] Plaid API integration
-* [ ] User authentication
+* [x] User authentication
 * [ ] Deployment (via Distillery)
 * [ ] Desktop client
 * [ ] ETrade API integration (?)
-* [ ] Cron-job for date-based reminders/notifications (?)
 
 ## Running
 
-**TODO**
+* mix deps.get
+* mix ecto.reset
+* mix phx.server

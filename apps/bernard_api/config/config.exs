@@ -24,7 +24,13 @@ config :logger, :console,
 # Configure Guardian for API authentication via token
 config :bernard_api, BernardApi.Guardian,
   issuer: "bernard_api",
-  secret_key: {BernardApi.Config, :get_environment_variable, ["API_JWT_SECRET_KEY"]}
+  secret_key: {BernardApi.Config, :get_system_variable, ["API_JWT_SECRET_KEY"]}
+
+# Configure our Plaid API connection information and credentials
+# config :bernard_api, :plaid,
+#   secret: {BernardApi.Config, :get_system_variable, ["PLAID_SECRET"]},
+#   public_key: {BernardApi.Config, :get_system_variable, ["PLAID_PUBLIC_KEY"]},
+#   client_id: {BernardApi.Config, :get_system_variable, ["PLAID_CLIENT_ID"]}
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -30,6 +30,10 @@ config :bernard_api, BernardApi.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# Configure Plaid API connection info
+config :bernard_api, :plaid,
+  host: "https://production.plaid.com"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

@@ -1,4 +1,4 @@
-defmodule BernardApi.Users.CreateUser do
+defmodule BernardApi.GraphQL.Users.CreateUser do
   @moduledoc """
   Creates a new user
   """

@@ -1,5 +1,8 @@
 defmodule BernardApi.Endpoint do
+
   use Phoenix.Endpoint, otp_app: :bernard_api
+
+  alias BernardApi.Config
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -54,9 +57,9 @@ defmodule BernardApi.Endpoint do
   defp get_env_vars(config) do
     env_vars = [
       http: [
-        port:           String.to_integer(System.get_env("API_PORT")) || (raise "Environment variable API_PORT is missing")
+        port: String.to_integer(Config.get_system_variable("API_PORT"))
       ],
-      secret_key_base:  System.get_env("API_SECRET_KEY_BASE")         || (raise "Environment variable API_SECRET_KEY_BASE is missing")
+      secret_key_base: Config.get_system_variable("API_PORT")
     ]
 
     env_vars ++ config

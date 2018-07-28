@@ -1,4 +1,4 @@
-defmodule BernardApi.Users do
+defmodule BernardApi.GraphQL.Users do
   @moduledoc """
   Represents a user internal to this system. Users can have many Items, etc.
   """

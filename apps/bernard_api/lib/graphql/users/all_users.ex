@@ -1,4 +1,4 @@
-defmodule BernardApi.Users.AllUsers do
+defmodule BernardApi.GraphQL.Users.AllUsers do
   @moduledoc """
   Retrieves all users
   """
@@ -22,6 +22,8 @@ defmodule BernardApi.Users.AllUsers do
 
   @doc false
   defp all_users(_root, _args, _info) do
-    {:error, "Not authenticated"}
+    # {:error, "Not authenticated"}
+    users = Accounts.list_users()
+    {:ok, users}
   end
 end

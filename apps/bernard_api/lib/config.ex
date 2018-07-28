@@ -4,7 +4,7 @@ defmodule BernardApi.Config do
   configuration options
   """
 
-  def get_environment_variable(name) do
+  def get_system_variable(name) do
     variable = System.get_env(name)
     variable || (raise "Environment variable " <> name <> " is missing")
   end

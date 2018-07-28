@@ -15,10 +15,13 @@ defmodule BernardCore.Finance.Item do
   import Ecto.Changeset
 
   alias BernardCore.Accounts.User
+  alias BernardCore.Finance.Transaction
 
   schema "items" do
     field :access_token, :string
     field :item_id, :string
+
+    has_many  :transactions, Transaction
 
     belongs_to :user, User
 
@@ -29,6 +32,7 @@ defmodule BernardCore.Finance.Item do
   def changeset(item, attrs) do
     item
     |> cast(attrs, [:access_token, :item_id])
+    |> cast_assoc(:transactions, with: &Transaction.changeset/2, required: false)
     |> validate_required([:access_token, :item_id])
     |> unique_constraint(:access_token)
     |> unique_constraint(:item_id)

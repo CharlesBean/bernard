@@ -47,3 +47,7 @@ config :cors_plug,
   origin: ["http://localhost:3000"],
   max_age: 86400,
   methods: ["GET", "POST"]
+
+# Configure Plaid API connection info
+config :bernard_api, :plaid,
+  host: "https://sandbox.plaid.com"

@@ -2,7 +2,7 @@ defmodule BernardCore.Finance.Transaction do
   @moduledoc """
   [External] Ecto schema and changeset information for the Transaction entity.
   Is retrieved from the Plaid financial API. Transactions may have a Location
-  associated with them
+  associated with them and will always have an Item associated
   """
 
   use BernardCore.Schema
@@ -10,6 +10,7 @@ defmodule BernardCore.Finance.Transaction do
   import Ecto.Changeset
 
   alias BernardCore.Geo.Location
+  alias BernardCore.Finance.Item
 
   schema "transactions" do
     field :account_id, :string
@@ -22,6 +23,7 @@ defmodule BernardCore.Finance.Transaction do
     field :transaction_id, :string
     field :transaction_type, :string
 
+    belongs_to :item, Item
     belongs_to :location, Location
 
     timestamps()
