@@ -6,19 +6,18 @@ apps not implemented atm
 
 A financial management app for families. Ideas/features:
 
-* [ ] Collect and persist bank transactions locally to keep personal records forever
-* [ ] Push notifications of new transactions
-* [ ] Spending anaylsis mainly around predictive budgeting
+* [x] Collect and persist bank transactions locally to keep personal records forever
+* [x] Push notifications of new transactions
+* [ ] Spending anaylsis
 * [ ] Investment reminders or automated investments
 * [ ] Budgeting in terms of future purchases instead of dollar values
 
 ## Todo
 
-* [ ] Plaid API integration
+* [x] Plaid API integration
 * [x] User authentication
 * [ ] Deployment (via Distillery)
 * [ ] Desktop client
-* [ ] ETrade API integration (?)
 
 ## Running
 
