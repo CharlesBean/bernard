@@ -18,6 +18,7 @@ defmodule BernardCore.Geo.Location do
     field :lat, :float
     field :lon, :float
     field :state, :string
+    field :store_number, :string
     field :zip, :string
 
     has_many :transactions, Transaction
@@ -28,7 +29,7 @@ defmodule BernardCore.Geo.Location do
   @doc false
   def changeset(location, attrs) do
     location
-    |> cast(attrs, [:address, :city, :lat, :lon, :state, :zip])
-    |> validate_required([:address, :city, :lat, :lon, :state, :zip])
+    |> cast(attrs, [:address, :city, :lat, :lon, :state, :store_number, :zip])
+    |> validate_required([:address, :city, :lat, :lon, :state, :store_number, :zip])
   end
 end

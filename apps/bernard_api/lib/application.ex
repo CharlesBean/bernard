@@ -12,6 +12,8 @@ defmodule BernardApi.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(BernardApi.Endpoint, []),
+      # Channels + subscriptions for frontend push messages
+      supervisor(Absinthe.Subscription, [BernardApi.Endpoint]),
       # Start your own worker by calling: BernardApi.Worker.start_link(arg1, arg2, arg3)
       # worker(BernardApi.Worker, [arg1, arg2, arg3]),
     ]

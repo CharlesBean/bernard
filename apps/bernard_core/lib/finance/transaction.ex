@@ -16,6 +16,7 @@ defmodule BernardCore.Finance.Transaction do
     field :account_id, :string
     field :amount, :float
     field :category, {:array, :string}
+    field :category_id, :string
     field :date, :string
     field :name, :string
     field :pending, :boolean
@@ -32,7 +33,7 @@ defmodule BernardCore.Finance.Transaction do
   @doc false
   def changeset(transaction, attrs) do
     transaction
-    |> cast(attrs, [:account_id, :amount, :category, :date, :name, :pending, :pending_transaction_id, :transaction_id, :transaction_type])
-    |> validate_required([:account_id, :amount, :category, :date, :name, :pending, :transaction_id, :transaction_type])
+    |> cast(attrs, [:account_id, :amount, :category, :category_id, :date, :name, :pending, :pending_transaction_id, :transaction_id, :transaction_type])
+    |> validate_required([:account_id, :amount, :category, :category_id, :date, :name, :pending, :transaction_id, :transaction_type])
   end
 end

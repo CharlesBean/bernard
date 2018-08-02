@@ -5,6 +5,7 @@ defmodule BernardCore.Finance do
 
   alias BernardCore.Repo
   alias BernardCore.Finance.Item
+  alias BernardCore.Finance.Transaction
 
   @doc """
   Returns the list of transactions for a user over a given time
@@ -24,5 +25,33 @@ defmodule BernardCore.Finance do
     |> Item.changeset(attrs)
     |> Ecto.Changeset.put_change(:user_id, user_id)
     |> Repo.insert()
+  end
+
+  @doc """
+  Adds transactions for an Item. Skips existing transactions via "transaction_id" uniqueness
+
+  :|PERFORMANCE Update to use Repo.insert_all
+  """
+  def create_transactions(item_id, [%{} = _head|_tail] = transactions) do
+
+    existing_transaction_ids = Repo.all from t in Transaction,
+      where: t.item_id == ^item_id,
+      select: t.transaction_id
+
+    changesets = transactions
+      |> Enum.filter(fn t ->
+        !Enum.any?(existing_transaction_ids, fn transaction_id -> transaction_id == t["transaction_id"] end)
+      end)
+      |> Enum.map(fn t ->
+        %Transaction{:item_id => item_id}
+        |> Transaction.changeset(t)
+      end)
+
+    _multi_result = changesets
+      |> Enum.with_index()
+      |> Enum.reduce(Ecto.Multi.new(), fn ({changeset, index}, multi) ->
+        Ecto.Multi.insert(multi, Integer.to_string(index), changeset)
+      end)
+      |> Repo.transaction
   end
 end

@@ -37,6 +37,7 @@ defmodule BernardApi.Mixfile do
   defp deps do
     [
       # {:absinthe_ecto, "~> 0.1.0"},
+      {:absinthe_phoenix, "~> 1.4.0"},
       {:absinthe_plug, "~> 1.4"},
       {:bernard_core, in_umbrella: true},
       {:comeonin, "~> 4.0"},

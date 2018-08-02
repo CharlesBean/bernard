@@ -43,8 +43,15 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Config cross-origin requests via the cors_plug library for dev
+# Added IPs for Plaid webhooks (https://support.plaid.com/customer/en/portal/articles/2546264-webhook-overview)
 config :cors_plug,
-  origin: ["http://localhost:3000"],
+  origin: [
+    "http://localhost:3000",
+    "52.21.26.131",
+    "52.21.47.157",
+    "52.41.247.19",
+    "52.88.82.239"
+  ],
   max_age: 86400,
   methods: ["GET", "POST"]
 

@@ -8,6 +8,7 @@ defmodule BernardApi.Schema do
 
   import_types BernardApi.GraphQL.Transactions
   import_types BernardApi.GraphQL.Transactions.ListTransactions
+  import_types BernardApi.GraphQL.Transactions.TransactionsAdded
 
   import_types BernardApi.GraphQL.Items
   import_types BernardApi.GraphQL.Items.CreateItem
@@ -22,5 +23,9 @@ defmodule BernardApi.Schema do
   mutation do
     import_fields :create_user
     import_fields :create_item
+  end
+
+  subscription do
+    import_fields :transactions_added
   end
 end

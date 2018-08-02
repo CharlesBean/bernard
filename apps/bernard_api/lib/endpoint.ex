@@ -1,8 +1,11 @@
 defmodule BernardApi.Endpoint do
 
   use Phoenix.Endpoint, otp_app: :bernard_api
+  use Absinthe.Phoenix.Endpoint
 
   alias BernardApi.Config
+
+  socket "/socket", BernardApi.Sockets.TransactionSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
