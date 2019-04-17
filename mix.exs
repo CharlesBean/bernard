@@ -16,7 +16,9 @@ defmodule Bernard.Mixfile do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      { :distillery, "~> 2.0" }
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
